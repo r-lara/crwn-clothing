@@ -40,7 +40,7 @@ export class Directory extends Component {
     render() {
         return (
             <div className="directory-menu">
-                { this.state.sections && this.state.sections.map( ({ id, title, imageUrl, size }) => (<MenuItem key={id} title={title} imageUrl={imageUrl} size={size} />)) }
+                { this.state.sections && this.state.sections.map( ({ id, ...someOtherProps }) => (<MenuItem key={id} {...someOtherProps} />)) }
             </div>
         )
     }

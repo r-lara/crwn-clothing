@@ -1,38 +1,50 @@
 import React, { Component } from 'react'
-
-import './sing-in.styles.scss';
 import FormInput from '../form-input/form-input.component'
-import CustomButton from '../custom-button/custom-button.component'
 
-import { signInWithGoogle } from '../../firebase/firebase.utils';
-
-class SingIn extends Component {
+class SignUp extends Component {
     state = {
+        name: '',
         email: '',
         password: '',
+        pwd: '',
     }
     handleSubmit = e => {
         e.preventDefault()
-        console.log('submit from', this.state)
     }
     handleChange = e => {
         e.preventDefault()
-        const { value, name } = e.target;
+        const { value, name } = e
         this.setState({ [name]: value })
     }
     render() {
         return (
-            <div className='sing-in'>
-                <h2>I already have an account</h2>
-                <span>Sing in with your email and passowrd</span>
+            <div className='sign-in'>
+                <h2>I dont have an account</h2>
+                <span>Sign up with your email and passowrd</span>
 
                 <form onSubmit={this.handleSubmit}>
+                    <FormInput 
+                        type="name" 
+                        name='name'
+                        label='Name'
+                        handleChange={this.handleChange} 
+                        value={this.state.name}
+                        required
+                        />
                     <FormInput 
                         type="email" 
                         name='email'
                         label='Email'
                         handleChange={this.handleChange} 
                         value={this.state.email}
+                        required
+                        />
+                    <FormInput 
+                        type="pwd" 
+                        name='pwd' 
+                        label='Confirm Password'
+                        handleChange={this.handleChange} 
+                        value={this.state.pwd}
                         required
                         />
                     <FormInput 
@@ -43,16 +55,10 @@ class SingIn extends Component {
                         value={this.state.password}
                         required
                         />
-                    <div className="buttons">
-                        <CustomButton>Sing in</CustomButton>
-                        <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
-                            Sing in with Google
-                        </CustomButton>
-                    </div>
                 </form>
             </div>
         )
     }
 }
 
-export default SingIn
+export default SignUp

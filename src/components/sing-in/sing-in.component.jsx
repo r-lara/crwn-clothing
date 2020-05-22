@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 
+import './sing-in.styles.scss';
 import FormInput from '../form-input/form-input.component'
 import CustomButton from '../custom-button/custom-button.component'
+
+import { signInWithGoogle } from '../../firebase/firebase.utils';
 
 class SingIn extends Component {
     state = {
@@ -40,8 +43,12 @@ class SingIn extends Component {
                         value={this.state.password}
                         required
                         />
-
-                    <CustomButton>Sing in</CustomButton>
+                    <div className="buttons">
+                        <CustomButton>Sing in</CustomButton>
+                        <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
+                            Sing in with Google
+                        </CustomButton>
+                    </div>
                 </form>
             </div>
         )

@@ -12,16 +12,18 @@ const config = {
     appId: "1:263065638850:web:2d17f7f4a9e168f492685b"
 }
 
-export const createUserProfileDocument = async (userAuth, additionalData) => {
+export const createUserProfileDocument = async (userAuth, additionalData = {}) => {
     if(!userAuth) return;
 
     const userRef = firestore.doc(`users/${userAuth.uid}`)
     await userRef.get()
         .then( snapShot => {
+            console.log('additional data', additionalData)
             if(!snapShot.exists){
                 const { displayName, email, uid } = userAuth
                 const createdAt = new Date();
-
+                
+                console.log('additional data if doesnt exist', additionalData)
                 userRef.set({ displayName, email, uid, createdAt, ...additionalData })
             }
         })

@@ -1,8 +1,9 @@
 .sign-in {
-    width: 480px;
     display: flex;
     flex-direction: column;
-
+    width: 380px;
+    margin: 0 10px;
+    
     .title {
         margin: 10px 0;
     }

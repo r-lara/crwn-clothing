@@ -37,7 +37,7 @@ const CheckoutPage = ({ cartItems, total }) => (
     <div className='total'>TOTAL: ${total}</div>
     <div className="test-warning">
       *Please use this for testing*
-      <br/>
+      <br />
       4242 4242 4242 4242
       01/21 123
     </div>

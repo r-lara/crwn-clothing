@@ -80,4 +80,6 @@ googleProvider.setCustomParameters({ prompt: 'select_account' });
 
 export const signInWithGoogle = () => auth.signInWithPopup(googleProvider)
 
+export const signUpWithEmailAndPassword = ({ email, password }) => auth.createUserWithEmailAndPassword(email,password);
+
 export default firebase;

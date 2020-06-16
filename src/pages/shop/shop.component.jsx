@@ -11,6 +11,10 @@ const ShopPage = ({ match, fetchCollectionsStart }) => {
 
     useEffect(() => {
         fetchCollectionsStart();
+        // return () => {
+        //     // mimics component will unmount
+        //     // this is called a 'clean up function'
+        // }
     }, [fetchCollectionsStart])
 
     return (

@@ -21,9 +21,15 @@ if(process.env.NODE_ENV !== 'production'){
     app.use(express.static(path.join(__dirname, 'client/build')));
 
     app.get('*', function(req, res) {
+        // console.log('catched by *')
         res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
     })
 }
+
+// app.get('/hi', (req, res) => {
+//     console.log('catched by /hi')
+//     res.status(200).send({ success: 'connected' });
+// });
 
 
 app.post('/payment', (req, res) => {

@@ -14,7 +14,6 @@ import Header from './components/header/header.component';
 import { checkUserSession } from './redux/user/user.actions';
 
 import { selectCurrentUser } from './redux/user/user.selector';
-import { selectCollectionsForPreview } from './redux/shop/shop.selector'
 
 const App = ({ checkUserSession, currentUser }) => {
   
